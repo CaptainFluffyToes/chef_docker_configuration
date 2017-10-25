@@ -4,7 +4,7 @@ maintainer_email 'djkhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures docker_configuration'
 long_description 'Installs/Configures docker_configuration'
-version '0.1.5'
+version '0.1.7'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -26,6 +26,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 #[10/16/2017] - 0.1.4 - Updated berksfile source to include chef server
 #[10/16/2017] - 0.1.5 - Made chef-apt-docker run first
 #[10/18/2017] - 0.1.6 - Created loops and conditional checks for scripts
-
+#[10/25/2017] - 0.1.7 - Added tests for debian and rhel distros
 depends 'docker'
 depends 'chef-apt-docker'
+depends 'chef-yum-docker'
