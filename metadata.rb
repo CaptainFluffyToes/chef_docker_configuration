@@ -27,7 +27,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [10/16/2017] - 0.1.5 - Made chef-apt-docker run first
 # [10/18/2017] - 0.1.6 - Created loops and conditional checks for scripts
 # [10/25/2017] - 0.1.7 - Added tests for debian and rhel distros
-# [12/22/2017] - 0.1.8 - Added dynamic renaming of machines so that -docker.solsys.com is checked and then the machine is renamed if not. 
+# [12/22/2017] - 0.1.8 - Added dynamic renaming of machines so that -docker.solsys.com is checked and then the machine is renamed if not.
 
 depends 'docker'
 depends 'chef-apt-docker'
