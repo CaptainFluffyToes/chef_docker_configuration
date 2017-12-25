@@ -26,7 +26,7 @@ docker_installation_package 'default' do
   action :create
 end
 
-if node['hostname'] !~ /([-]docker.solsys.com)/
+if node['machinename'] !~ /([-]docker.solsys.com)/
   bash 'set_hostname' do
     code <<-EOH
     hostname_string=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
