@@ -34,6 +34,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [12/28/2017] - 0.1.12 - Add "" around $hostname for /etc/hosts modification.
 # [12/28/2017] - 0.1.13 - replaced awk with sed.
 # [12/28/2017] - 0.1.14 - Added package options for docker installation.
+# [12/28/2017] - 0.1.15 - Removed cookbook version of docker install.  Replaced with apt-get install docker-ce.
 
 depends 'docker'
 depends 'chef-apt-docker'

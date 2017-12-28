@@ -22,9 +22,11 @@ if node['platform_family'] == 'debian'
   end
 end
 
-docker_installation_package 'default' do
-  package_name 'docker-ce'
-  action :create
+if node['platform_family'] == 'debian'
+  apt_package 'Docker' do
+    package_name 'docker-ce'
+    action :install
+  end
 end
 
 if node['machinename'] !~ /([-]docker.solsys.com)/
