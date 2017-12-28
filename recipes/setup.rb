@@ -23,6 +23,7 @@ if node['platform_family'] == 'debian'
 end
 
 docker_installation_package 'default' do
+  package_name 'docker-ce'
   action :create
 end
 
