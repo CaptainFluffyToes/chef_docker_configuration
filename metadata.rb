@@ -4,7 +4,7 @@ maintainer_email 'djkhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures docker_configuration'
 long_description 'Installs/Configures docker_configuration'
-version '0.1.11'
+version '0.1.12'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -31,6 +31,8 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [12/25/2017] - 0.1.9 - Changed OHAI look up from hostname to machinename.  Hostname did not add .solsys.com.
 # [12/28/2017] - 0.1.10 - Removed OHAI relaod.
 # [12/28/2017] - 0.1.11 - Updated /etc/hosts modification to not look for a specific string.
+# [12/28/2017] - 0.1.12 - Add "" around $hostname for /etc/hosts modification.
+
 
 depends 'docker'
 depends 'chef-apt-docker'
