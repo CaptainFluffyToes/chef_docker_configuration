@@ -20,25 +20,21 @@ if node['platform_family'] == 'debian'
       action :install
     end
   end
-end
-
-if node['platform_family'] == 'debian'
   apt_package 'Docker' do
     package_name 'docker-ce'
     action :install
   end
-end
-
-if node['machinename'] !~ /([-]docker.solsys.com)/
-  bash 'set_hostname' do
-    code <<-EOH
-    hostname_string=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
-    hostname_suffix=solsys.com
-    hostname=$hostname_string-docker.$hostname_suffix
-    hostnamectl set-hostname $hostname
-    sed -i "/127.0.1.1 / s/.*/127.0.1.1 $hostname/" /etc/hosts
-    /etc/init.d/hostname.sh start
-    EOH
-    action :run
+  if node['machinename'] !~ /([-]docker.solsys.com)/
+    bash 'set_hostname' do
+      code <<-EOH
+      hostname_string=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
+      hostname_suffix=solsys.com
+      hostname=$hostname_string-docker.$hostname_suffix
+      hostnamectl set-hostname $hostname
+      sed -i "/127.0.1.1 / s/.*/127.0.1.1 $hostname/" /etc/hosts
+      /etc/init.d/hostname.sh start
+      EOH
+      action :run
+    end
   end
 end

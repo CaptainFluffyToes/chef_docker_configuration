@@ -4,7 +4,7 @@ maintainer_email 'djkhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures docker_configuration'
 long_description 'Installs/Configures docker_configuration'
-version '0.1.15'
+version '0.1.16'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -35,6 +35,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [12/28/2017] - 0.1.13 - replaced awk with sed.
 # [12/28/2017] - 0.1.14 - Added package options for docker installation.
 # [12/28/2017] - 0.1.15 - Removed cookbook version of docker install.  Replaced with apt-get install docker-ce.
+# [12/28/2017] - 0.1.16 - Combined commands for better efficiency.
 
 depends 'docker'
 depends 'chef-apt-docker'
