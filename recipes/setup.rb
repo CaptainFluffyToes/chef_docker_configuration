@@ -20,9 +20,11 @@ if node['platform_family'] == 'debian'
       action :install
     end
   end
-  apt_package 'Docker' do
-    package_name 'docker-ce'
-    action :install
+  bash 'Install_Docker' do
+    code <<-EOH
+    apt-get install -qy docker-ce
+    EOH
+    action :run
   end
   if node['machinename'] !~ /([-]docker.solsys.com)/
     bash 'set_hostname' do
