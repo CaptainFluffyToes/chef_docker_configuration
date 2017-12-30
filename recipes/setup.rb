@@ -28,6 +28,7 @@ if node['platform_family'] == 'debian'
   end
   if node['machinename'] !~ /([-]docker.solsys.com)/
     bash 'set_hostname' do
+      user root
       code <<-EOH
       hostname_string=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
       hostname_suffix=solsys.com
