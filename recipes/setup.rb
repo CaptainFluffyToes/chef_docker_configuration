@@ -20,12 +20,6 @@ if node['platform_family'] == 'debian'
       action :install
     end
   end
-  package 'docker_install' do
-    package_name 'docker-ce'
-    timeout 60
-    ignore_failure true
-    action :install
-  end
   if node['machinename'] !~ /([-]docker.solsys.com)/
     bash 'set_hostname' do
       code <<-EOH
