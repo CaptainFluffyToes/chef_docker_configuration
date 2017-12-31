@@ -4,7 +4,7 @@ maintainer_email 'djkhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures docker_configuration'
 long_description 'Installs/Configures docker_configuration'
-version '0.1.22'
+version '0.1.23'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -42,7 +42,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [12/30/2017] - 0.1.20 - Added back in the installation of docker-ce.
 # [12/30/2017] - 0.1.21 - Changed script to run as root.
 # [12/30/2017] - 0.1.22 - Forgot to make the username a string.
-# [12/31/2017] - 0.1.21 - Removed user and updated bash resource block to have a timeout and umask.
+# [12/31/2017] - 0.1.23 - Removed user and updated bash resource block to have a timeout and umask.
 
 depends 'docker'
 depends 'chef-apt-docker'
