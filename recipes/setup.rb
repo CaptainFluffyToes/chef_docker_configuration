@@ -28,7 +28,6 @@ if node['platform_family'] == 'debian'
   end
   if node['machinename'] !~ /([-]docker.solsys.com)/
     bash 'set_hostname' do
-      user 'root'
       code <<-EOH
       hostname_string=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
       hostname_suffix=solsys.com
@@ -37,6 +36,8 @@ if node['platform_family'] == 'debian'
       sed -i "/127.0.1.1 / s/.*/127.0.1.1 $hostname/" /etc/hosts
       /etc/init.d/hostname.sh start
       EOH
+      timeout 60
+      umask 7777
       action :run
     end
   end
