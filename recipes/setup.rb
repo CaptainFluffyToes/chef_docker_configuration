@@ -36,8 +36,10 @@ if node['platform_family'] == 'debian'
       sed -i "/127.0.1.1 / s/.*/127.0.1.1 $hostname/" /etc/hosts
       /etc/init.d/hostname.sh start
       EOH
+      ignore_failure true
+      user 'root'
+      group 'root'
       timeout 60
-      umask 7777
       action :run
     end
   end
